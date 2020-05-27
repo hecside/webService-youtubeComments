@@ -12,7 +12,7 @@ using static passwordRESTService.IPassword;
 
 namespace passwordRESTService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
+    
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Password : IPassword
     {
@@ -33,11 +33,8 @@ namespace passwordRESTService
             response.Close();
             
 
-
-            
-
             RootObject commentsObject = JsonConvert.DeserializeObject<RootObject>(responsereader);
-            //string author = commentsObject.items[0].snippet.topLevelComment.snippet.authorDisplayName;
+            
             int size = commentsObject.items.Count;
             string result = "";
 
@@ -45,14 +42,11 @@ namespace passwordRESTService
             //labels author and body 
             for (int i =0; i<size;i++ )
             {
-               //c.allComments[i].author = commentsObject.items[i].snippet.topLevelComment.snippet.authorDisplayName;
-                //c.allComments[i].commentBody = commentsObject.items[i].snippet.topLevelComment.snippet.textDisplay;
-
-                //revert
+              
                 result += "author: " + commentsObject.items[i].snippet.topLevelComment.snippet.authorDisplayName + "\nbody: " + commentsObject.items[i].snippet.topLevelComment.snippet.textDisplay + "\n\n";
             }
 
-            //revert
+            
             c.allComments = result ;
 
 
@@ -64,7 +58,7 @@ namespace passwordRESTService
 }
 
 
-//structur of json output for comment list
+//structur of json returned for comment list
 public class Snippet1
 {
     public string authorDisplayName { get; set; }
