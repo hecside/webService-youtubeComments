@@ -21,9 +21,9 @@ namespace passwordRESTService
         {
             Comments c = new Comments();
             
-            //ay4MKe1u7Ec
+            
 
-            string url = @"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=" + id + "&maxResults=5&key=AIzaSyB0xSrD0Ycav5U9kpceaetb0wPc9pjJbGA&order=relevance";
+            string url = @"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=" + id + "&maxResults=5&key={API_key}&order=relevance";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             WebResponse response = request.GetResponse();
 
